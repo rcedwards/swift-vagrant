@@ -35,7 +35,9 @@ Vagrant.configure(2) do |config|
   ## Export Swift bin to PATH
   if [ $(grep -c "#{SWIFT_PATH}" .profile) -eq 0 ]; then
     echo "Adding swift to path"
-    echo "export PATH="#{SWIFT_HOME}"/usr/bin:\"${PATH}\"" >> .profile
+    echo 'SWIFT_HOME="#{SWIFT_HOME}"' >> .profile
+    echo 'PATH="$SWIFT_HOME/usr/bin:$PATH"' >> .profile
+    source .profile
   fi
   
   echo "Swift finished install on Linux"
