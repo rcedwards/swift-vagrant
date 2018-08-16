@@ -15,7 +15,9 @@ Vagrant.configure(2) do |config|
   echo "Installing prerequisites"
   sudo apt-get -qq update && sudo apt-get upgrade -y
   sudo apt-get install -y clang \
-    libpython2.7
+    libpython2.7 \
+    curl \
+    libcurl3
   
   ## Download Swift
   if [ ! -d "#{SWIFT_PATH}" ]; then
